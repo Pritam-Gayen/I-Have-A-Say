@@ -1,0 +1,88 @@
+#message_area {
+    height: 90%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 5px;
+    /* background-color: rgb(110, 110, 110); */
+}
+
+
+.type-area {
+    /* height: 60px; */
+    height: 10%;
+    background-color: rgb(8, 20, 6);
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+
+.type-comment {
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    resize: none;
+}
+
+
+
+
+.comment-lower {
+    display: flex;
+    background-color: rgb(211, 188, 233);
+    border-radius: 0 0 10px 10px;
+}
+
+.comment-wrapper {
+    margin-left: 10px;
+}
+.comment-upper {
+    font-size: 20px;
+    background-color: rgb(211, 188, 233);
+    border-radius: 10px 10px 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.like-display {
+    color: rgb(26, 160, 14);
+    /* background-color: rgb(211, 188, 233); */
+    font-size: 20px;
+    /* border-radius: 0 0 10px 10px; */
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.like-display-holder {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    width: 50%;
+}
+.like-display-holder > p {
+    position: relative;
+    left: -18px;
+    top: -2px;
+}
+
+.reply-buttons-holder {
+    position: relative;
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+}
+.reply-wrapper {
+    height: 50px;
+    background-color: rgb(211, 188, 233);
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    border-radius: 10px;
+    /* display: none; */
+}
+

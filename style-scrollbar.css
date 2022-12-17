@@ -1,0 +1,23 @@
+/* for custom scroll-bar */
+.message-area::-webkit-scrollbar-thumb {
+    background-color: rgb(12, 88, 230);
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;  
+}
+.message-area::-webkit-scrollbar {
+    width: 15px;
+  }
+/* --------------------- */
+
+/* for custom scroll-bar */
+.type-comment::-webkit-scrollbar-thumb {
+    background-color: rgb(12, 88, 230);
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;  
+}
+.type-comment::-webkit-scrollbar {
+    width: 15px;
+  }
+/* --------------------- */

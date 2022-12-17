@@ -1,0 +1,67 @@
+.comment-add-button {
+    width: 70px;
+    border-radius: 20px;
+    background-color: green;
+    color: white;
+}
+.comment-add-button:hover {
+    background-color: rgb(44, 185, 44);
+}
+
+.like-button {
+    font-size: 20px;
+    position: relative;
+    color: rgb(12, 55, 175);
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.reply-button {
+    font-size: 20px;
+    position: relative;
+    color: rgb(8, 48, 158);
+    margin-right: 10px;
+}
+.delete-button {
+    font-size: 20px;
+    position: relative;
+    color: rgb(192, 11, 11);
+    margin-right: 10px;
+}
+
+.like-button:hover {
+    
+    color: rgb(47, 97, 236);
+    top: -5px;
+}
+.reply-button:hover {
+    
+    color: rgb(47, 97, 236);
+    top: -5px;
+}
+.delete-button:hover {
+    
+    color: rgb(243, 42, 42);
+    top: -5px;
+}
+
+.reply-add-button {
+    width: 30px;
+    border-radius: 20px;
+    background-color: green;
+    color: white;
+}
+.reply-add-button:hover {
+    background-color: rgb(44, 185, 44);
+}
+
+.reply-cancel-button {
+    width: 30px;
+    border-radius: 20px;
+    background-color: rgb(192, 11, 11);
+    color: white;
+}
+.reply-cancel-button:hover {
+    background-color: rgb(243, 42, 42);
+}
+
+
