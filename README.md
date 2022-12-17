@@ -17,4 +17,3 @@ A comment/message-reply section using JavaScript, CSS and HTML
 
 * Comments can be chained resembling a tree-like structure wherein every child comment will be aligned some pixels left to the parent comment.
 
-* Comments once added should be persisted on page re-load.
