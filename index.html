@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style-inside-layout.css">
     <link rel="stylesheet" href="style-buttons.css">
     <link rel="stylesheet" href="style-scrollbar.css">
+    <link rel="stylesheet" href="style-alert.css">
 
     <script src="main.js" defer></script>
     <!-- <script  type="module" src="./reply-button-display.js"></script> -->
@@ -17,7 +18,7 @@
 </head>
 <body>
     <!-- this div contains the whole message platform -->
-    <div class="container">
+    <div class="container" id="solid_container">
         
         <div class="type-area">
             <textarea class="type-comment" cols="20" rows="3"></textarea>
@@ -27,6 +28,18 @@
         <!-- this div contains all the meassages and replies -->
         <div class="message-area" id="message_area">
             
+        </div>
+    </div>
+
+    <!-- This div is empty and transparent used for alert -->
+    <div class="container" id="transparent_container">
+    </div>
+
+    <!-- This div is holding alert box-->
+    <div class="container" id="alert_holder">
+        <div id="alert">
+            <p>Message can not be empty</p>
+            <button id="alert_button" onclick="removeAlert()">OK</button>
         </div>
     </div>
 </body>

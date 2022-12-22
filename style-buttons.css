@@ -64,4 +64,17 @@
     background-color: rgb(243, 42, 42);
 }
 
-
+#alert_button {
+    background-color: rgb(204, 6, 6);
+    border-color: rgb(245, 101, 101);
+    margin-left: 20%;
+    margin-top: 10%;
+    width: 60%;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+}
+#alert_button:hover {
+    background-color: rgb(247, 10, 10);
+    border-color: white;
+}

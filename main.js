@@ -51,6 +51,7 @@ function hideButton(x) {
 var commentParent = document.querySelector(".message-area")// this line need to be before render() because render function uses commentParent
 var commentObject = initializeComments()
 render()
+scrollToEnd()
 hideButtonsFirst()
 
 function createCommentObject(uId, newMessage, like) {
@@ -62,28 +63,51 @@ function createCommentObject(uId, newMessage, like) {
     }
 }
 
+function scrollToEnd() {
+    var messageArea = document.querySelector("#message_area")
+    messageArea.scrollTo(0, messageArea.scrollHeight)
+}
+
+function emptyAlert() {
+    var transparentContainer = document.querySelector("#transparent_container")
+    transparentContainer.style.display = "block"
+    var alertHolder = document.querySelector("#alert_holder")
+    alertHolder.style.display = "block"
+}
+function removeAlert() {
+    var transparentContainer = document.querySelector("#transparent_container")
+    transparentContainer.style.display = "none"
+    var alertHolder = document.querySelector("#alert_holder")
+    alertHolder.style.display = "none"
+}
 
 var commentAddButton = document.querySelector(".comment-add-button")
 commentAddButton.addEventListener("click", addComment)
 
 
 function addComment() {
-    var parent = document.querySelector(".message-area")// this line need to be before render() because render function uses commentParent
-
-    var numericId = "u" + Math.random()//'u' is added so it becomes string now slice can be applied on it
-    numericId = numericId.slice(3)
-    var uId = "u" + numericId
-
     var newMessage = document.querySelector(".type-comment").value
     document.querySelector(".type-comment").value = ""
+    if(newMessage == "") {
+        emptyAlert()
+    }
+    else {
+        var parent = document.querySelector(".message-area")// this line need to be before render() because render function uses commentParent
 
-    messageCreator(parent, uId, newMessage, 0, [])
-    document.querySelector(`#${uId} > .reply-wrapper`).style.display = "none"
+        var numericId = "u" + Math.random()//'u' is added so it becomes string now slice can be applied on it
+        numericId = numericId.slice(3)
+        var uId = "u" + numericId
 
-    // saving comment in memory ---------------------------------------------------
-    commentObject.push(createCommentObject(uId, newMessage, 0)) 
-    //---------------------------------------------------------------------------------
-    saveState() // saving comments in local storage
+        messageCreator(parent, uId, newMessage, 0, [])
+        document.querySelector(`#${uId} > .reply-wrapper`).style.display = "none"
+
+        // saving comment in memory ---------------------------------------------------
+        commentObject.push(createCommentObject(uId, newMessage, 0)) 
+        //---------------------------------------------------------------------------------
+        saveState() // saving comments in local storage
+        scrollToEnd()
+        hideButtonsFirst()
+    }
 }
 
 function addLike(x) {
@@ -104,11 +128,13 @@ function deleteComment(x) {
 
     deleteThisId(parentId, commentObject)
     saveState()
+    // scrollToEnd()
 }
 
 function displayReplyArea(x) {
     var parentId = x.parentElement.parentElement.parentElement.id
     document.querySelector(`#${parentId} > .reply-wrapper`).style.display = "flex"
+    // scrollToEnd()
 }
 
 function hideReplyArea(x) {
@@ -119,26 +145,30 @@ function hideReplyArea(x) {
 function addReply(x) {
     var replyParentId = x.parentElement.parentElement.id
     var parent = document.getElementById(replyParentId)
-
-    var numericId = "u" + Math.random()//u added so it becomes string now slice can be applied on it
-    numericId = numericId.slice(3)
-    var uId = "u" + numericId
-
     var newMessage = document.querySelector(`#${replyParentId} > .reply-wrapper > .type-comment`).value
     document.querySelector(`#${replyParentId} > .reply-wrapper > .type-comment`).value = ""
 
-    messageCreator(parent, uId, newMessage, 0, [])
-    document.querySelector(`#${uId} > .reply-wrapper`).style.display = "none"
-    document.querySelector(`#${replyParentId} > .reply-wrapper`).style.display = "none"
-    
-    
+    if(newMessage == "") {
+        emptyAlert()
+    }
+    else {
+        var numericId = "u" + Math.random()//u added so it becomes string now slice can be applied on it
+        numericId = numericId.slice(3)
+        var uId = "u" + numericId
 
-
-    // saving comment in memory ---------------------------------------------------
-    var objectFromMemory = dfsOnBackendObject(replyParentId, commentObject) 
-    objectFromMemory.replies.push(createCommentObject(uId, newMessage, 0)) 
-    //--------------------------------------------------------------------------------
-    saveState() // saving comments in local storage
+        messageCreator(parent, uId, newMessage, 0, [])
+        document.querySelector(`#${uId} > .reply-wrapper`).style.display = "none"
+        document.querySelector(`#${replyParentId} > .reply-wrapper`).style.display = "none"
+        
+        // saving comment in memory ---------------------------------------------------
+        var objectFromMemory = dfsOnBackendObject(replyParentId, commentObject) 
+        objectFromMemory.replies.push(createCommentObject(uId, newMessage, 0)) 
+        //--------------------------------------------------------------------------------
+        saveState() // saving comments in local storage
+        // scrollToEnd()
+        hideButtonsFirst()
+    }
+    
 }
 
 function dfsOnBackendObject(objId, parent) {

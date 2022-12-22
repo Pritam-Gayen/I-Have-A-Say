@@ -12,7 +12,6 @@ body {
 .container {
     margin: 10px;
     position: fixed;
-
     /* right 0 so that box allways sticks to right margin */
     right: 0;
     top: 0;
@@ -21,3 +20,4 @@ body {
     border: solid rgb(8, 20, 6);
     border-radius: 10px;
 }
+
